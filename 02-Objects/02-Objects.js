@@ -57,15 +57,6 @@ function crearClaseLibro() {
 
     }
 
-    printStaff(hogwarts) {
-      let a = ('The headmaster is '+ this.staff.headmaster.name);
-      let b = ('The keeperOfKeys is '+ this.staff.keeperOfKeys.name);
-      let c = ('The potionsMaster is '+ this.staff.potionsMaster.name);
-      let d = ('The headOfGryffindor is '+ this.staff.headOfGryffindor.name);
-      return ([a,b,c,d]);
-    }
-
-
   }
 
   return Libro;
@@ -85,12 +76,26 @@ function crearClaseLibro() {
 //     },
 //   },
 // };
-const printStaff = function (objeto) {
-  // Retornar un arreglo que contenga los strings indicando el titulo y nombre de cada miembro del staff
+
+// Retornar un arreglo que contenga los strings indicando el titulo y nombre de cada miembro del staff
   // de esta forma "The headmaster is Albus Percival Wulfric Brian Dumbledore" 
   // el arreglo debe mantener el orden que posee el staff del objeto.
-  
-  
+
+const printStaff = function (objeto) {
+  let arr = [];
+  for (let prop in objeto.staff) {
+    arr.push('The ' + prop + ' is ' + objeto.staff[prop].name )
+  }
+  return arr;
 };
 
 module.exports = { crearClaseLibro, printStaff };
+
+//Solucion instructor:
+
+// let props = Object.keys(objeto.staff); //[headmaster, keeperOfKeys, potionMasters]
+// let arr = [];
+// props.forEach(elem => {
+//   arr.push(`The ${elem} is ${objeto.staff[elem].name}`)
+// })
+// return arr;
