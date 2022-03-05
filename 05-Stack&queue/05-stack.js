@@ -11,14 +11,22 @@ const { Stack, Queue } = require("../estructuras")
 // > string con el mismo texto, el mismo orden, pero con las palabras invertidas. 
 
 // Ejemplo:
-//   Colombia Argentina: aibmoloC anitnegrA
+//   Colombia Argentina: aibmoloC anitnegrA 
 //   Mar Azulado: raM odaluzA
 
 
 function efectoEspejo(str){  
 //tu codigo aqui
-
-
+let myArray = str.split(' '); 
+    let myStack = new Stack();
+    for (let palabra=0; palabra < myArray.length; palabra++) {
+        let palabraMirror = new Stack();
+        for (let letra = myArray[palabra].length -1; letra >=0; letra--) {
+            palabraMirror.array.push(myArray[palabra][letra]);
+        }
+        myStack.array.push(palabraMirror.array.join(''))
+    }
+    return myStack.array.join(' ');
 };
 
 

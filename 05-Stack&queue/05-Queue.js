@@ -19,8 +19,22 @@
 
 var controlAcces = function(queue, event){
     // Tu código aca:
-
-  };
+    elementosEnCola = queue.array.length;
+    let newArray = [];
+    let tickedPassed = [];
+    
+    for (let i = 0; i < elementosEnCola; i++) {
+      let myFullname = queue.array[i].fullname;
+      let myAge = queue.array[i].age;
+      let ticketNum = queue.array[i].ticket.number;
+      let myEvent = queue.array[i].ticket.event;
+      if(myAge < 18 || myEvent !== event || ticketNum === undefined) continue;
+      if (tickedPassed.includes(ticketNum)) continue;
+      tickedPassed.push(ticketNum);
+      newArray.push(myFullname);
+    }
+    return newArray;
+};
       
   
 
