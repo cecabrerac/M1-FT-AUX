@@ -53,7 +53,12 @@ function crearClaseLibro() {
       // Suponiendo que el libro tiene estas traducciones: [{idioma: 'inglés', editorial: 'Scholastic'}, {idioma: 'castellano', editorial: 'Santillana'}]
       // libro.getAlcance() deberia devolver 2
       // Tu código aca:
-      return this.traducciones.length;      
+      
+      // Si no sabemos si hay datos repetidos:
+      return new Set(this.traducciones).size;
+
+      // Si sabemos que los datos no se repiten:
+      // return this.traducciones.length;      
 
     }
 
